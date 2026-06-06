@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Бортовой журнал дирижабля</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Дирижабль">
+<meta name="theme-color" content="#16100a">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Special+Elite&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#100c08;
+    --bg2:#1a130c;
+    --hull:#241a10;
+    --hull-line:#3a2a18;
+    --brass:#caa24a;
+    --brass-d:#8a6c2c;
+    --brass-l:#e6cf8e;
+    --copper:#b16a3a;
+    --parch:#e7dabb;
+    --parch-d:#cdb98d;
+    --ink:#241a10;
+    --green:#7ab36c;
+    --amber:#d99a3a;
+    --red:#c0492e;
+    --steel:#6b6258;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;height:100%;overflow:hidden;}
+  body{
+    font-family:'Spectral',serif;
+    background:
+      radial-gradient(120% 90% at 50% -10%, #2a1f12 0%, var(--bg) 60%),
+      var(--bg);
+    color:var(--parch);
+    -webkit-font-smoothing:antialiased;
+    user-select:none;
+    touch-action:manipulation;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    mix-blend-mode:overlay;
+  }
+  .app{display:flex;flex-direction:column;height:100vh;height:100dvh;}
+
+  /* ===== Header ===== */
+  header{
+    display:flex;align-items:center;gap:14px;
+    padding:10px 18px;
+    background:linear-gradient(180deg,#241a0f,#160f08);
+    border-bottom:2px solid var(--brass-d);
+    box-shadow:0 4px 18px rgba(0,0,0,.6);
+    flex-shrink:0;
+  }
+  .crest{
+    width:42px;height:42px;flex-shrink:0;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,var(--brass-l),var(--brass) 45%,var(--brass-d) 100%);
+    border:2px solid #4a3a1c;
+    display:grid;place-items:center;color:#2a1d0a;font-size:22px;
+    box-shadow:inset 0 0 6px rgba(0,0,0,.4),0 2px 6px rgba(0,0,0,.5);
+  }
+  .ship-title{flex:1;min-width:0;}
+  .ship-title .label{font-family:'Special Elite';font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--brass);opacity:.8;}
+  .ship-name{
+    font-family:'Cinzel Decorative';font-weight:900;font-size:clamp(16px,2.4vw,26px);
+    color:var(--brass-l);letter-spacing:1px;line-height:1.05;
+    background:transparent;border:none;outline:none;color:var(--brass-l);
+    width:100%;padding:0;text-shadow:0 1px 0 #000;
+  }
+  .ship-name:focus{border-bottom:1px dashed var(--brass-d);}
+
+  /* ===== Deck tabs ===== */
+  nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .deck-tab{
+    font-family:'Cinzel';font-weight:600;font-size:13px;letter-spacing:.5px;
+    padding:9px 14px;cursor:pointer;color:var(--parch-d);
+    background:linear-gradient(180deg,#2c2113,#1a130b);
+    border:1.5px solid #4a3a1c;border-radius:7px;
+    display:flex;align-items:center;gap:8px;white-space:nowrap;
+    transition:transform .12s,box-shadow .12s,color .12s;
+  }
+  .deck-tab .lvl{
+    font-family:'Special Elite';font-size:11px;
+    width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+    background:#0d0a06;color:var(--brass);border:1px solid var(--brass-d);
+  }
+  .deck-tab.active{
+    color:var(--ink);background:linear-gradient(180deg,var(--brass-l),var(--brass) 70%,var(--brass-d));
+    border-color:#6a531f;box-shadow:0 0 0 1px #000,0 4px 14px rgba(202,162,74,.3);
+    transform:translateY(-1px);
+  }
+  .deck-tab.active .lvl{background:#2a1d0a;color:var(--brass-l);}
+
+  /* ===== Stage ===== */
+  .stage{flex:1;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px;}
+  .deck-heading{
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);
+    font-family:'Cinzel';font-weight:600;letter-spacing:5px;text-transform:uppercase;
+    font-size:13px;color:var(--brass);opacity:.75;text-align:center;z-index:5;pointer-events:none;
+  }
+  .deck-heading small{display:block;font-family:'Special Elite';font-size:9px;letter-spacing:2px;opacity:.7;margin-top:2px;}
+
+  /* hull silhouette (airship from above) */
+  .hull{
+    position:relative;width:min(92%,1100px);height:min(78%,720px);
+    background:
+      repeating-linear-gradient(90deg, transparent 0 38px, rgba(0,0,0,.18) 38px 40px),
+      radial-gradient(140% 120% at 50% 0%, #2e2113, var(--hull) 70%);
+    border:3px solid var(--brass-d);
+    /* pointed ellipse — vid sverhu na dirizhabl */
+    clip-path:polygon(0 50%, 8% 16%, 28% 4%, 50% 0, 72% 4%, 92% 16%, 100% 50%, 92% 84%, 72% 96%, 50% 100%, 28% 96%, 8% 84%);
+    box-shadow:0 0 0 6px #0d0a06, 0 18px 50px rgba(0,0,0,.7), inset 0 0 60px rgba(0,0,0,.5);
+    display:flex;flex-direction:column;
+  }
+  .hull::before,.hull::after{
+    content:"";position:absolute;left:50%;transform:translateX(-50%);
+    width:60%;height:10px;background:linear-gradient(90deg,transparent,var(--brass-d),transparent);opacity:.4;
+  }
+  .hull::before{top:5%;}
+  .hull::after{bottom:5%;}
+  .deck-grid{
+    flex:1;display:grid;gap:12px;padding:8%;align-content:center;
+    width:100%;height:100%;
+  }
+
+  /* ===== Cabin deck: ship floor-plan ===== */
+  .hull.plain{
+    clip-path:none;border:none;background:none;box-shadow:none;
+    width:min(96%,1220px);height:min(86%,800px);
+  }
+  .hull.plain::before,.hull.plain::after{display:none;}
+  .plansvg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+  .threads{pointer-events:none;}
+  .room{
+    position:absolute;border-radius:7px;cursor:pointer;overflow:hidden;
+    background:linear-gradient(160deg,#efe4c6,var(--parch) 60%,var(--parch-d));
+    color:var(--ink);border:2px solid #9c8654;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 4px 11px rgba(0,0,0,.45);
+    padding:7px 8px;display:flex;flex-direction:column;transition:transform .12s;
+  }
+  .room:active{transform:scale(.98);}
+  .room .ct{font-family:'Cinzel';font-weight:700;font-size:11.5px;letter-spacing:.2px;display:flex;align-items:center;gap:5px;line-height:1.05;}
+  .room .ct .ic{font-size:13px;}
+  .room .note{font-size:11px;line-height:1.3;margin-top:4px;color:#4a3a22;overflow:hidden;flex:1;}
+  .room .note .empty{font-style:italic;opacity:.45;}
+  .slots{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:6px;flex:1;}
+  .slot{
+    border:1px dashed #a8915e;border-radius:5px;padding:3px 5px;
+    font-size:10px;display:flex;align-items:center;gap:4px;min-height:0;
+    background:rgba(255,255,255,.4);color:#3a2c18;overflow:hidden;
+    white-space:normal;word-break:break-word;line-height:1.15;
+  }
+  .slot .bn{font-family:'Special Elite';font-size:8.5px;color:var(--copper);flex-shrink:0;}
+  .slot.empty{opacity:.5;font-style:italic;}
+  .corridor{
+    position:absolute;border:1px solid #4a3a1c;border-radius:4px;
+    background:repeating-linear-gradient(90deg,#2b2013,#2b2013 14px,#352716 14px,#352716 16px);
+    display:flex;align-items:center;justify-content:center;box-shadow:inset 0 0 12px rgba(0,0,0,.55);
+  }
+  .corridor .lbl{font-family:'Special Elite';font-size:9px;letter-spacing:3px;color:var(--brass);opacity:.7;text-transform:uppercase;}
+  .stair{
+    position:absolute;border:1.5px solid var(--brass-d);border-radius:5px;
+    background:repeating-linear-gradient(45deg,#3a2c16,#3a2c16 5px,#52401f 5px,#52401f 10px);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    color:var(--brass-l);font-family:'Special Elite';font-size:8px;letter-spacing:1px;gap:1px;
+  }
+  .stair .si{font-size:15px;line-height:1;}
+  .caplabel{position:absolute;font-family:'Special Elite';font-size:9px;letter-spacing:3px;color:var(--brass);opacity:.5;text-transform:uppercase;pointer-events:none;}
+
+  .room.big .ct{font-family:'Cinzel';font-size:12.5px;}
+  .room.half{padding:6px 6px;}
+  .room.half .ct{font-size:9px;gap:3px;line-height:1.05;}
+  .room.half .ct .ic{font-size:10px;}
+  .room.half .note{font-size:8.5px;margin-top:3px;line-height:1.25;}
+  .room.power .note{display:flex;flex-direction:column;gap:2px;}
+  .room.power .gauge-row{font-size:10px;}
+  .room.crane{background:linear-gradient(160deg,#e9dcbd,#ceba8e);}
+  .room.crane .ct{font-family:'Cinzel';font-size:12px;}
+  .room.crane .cranerow{display:flex;align-items:center;font-size:11px;margin-top:5px;color:#3d2f1a;font-weight:600;}
+  .room.rank2{padding:5px 7px;}
+  .room.rank2 .ct{font-size:10.5px;}
+  .room.rank2 .ct .ic{font-size:11px;}
+  .room.rank2 .note{margin-top:4px;}
+  .room.rank2 .chip{font-size:9.5px;padding:1px 5px;margin:2px 2px 0 0;}
+  .room.rank2.top{background:linear-gradient(160deg,#f4e9c8,var(--brass) 72%,var(--brass-d));border-color:#6a531f;box-shadow:0 0 0 1px #000,0 6px 16px rgba(202,162,74,.4);}
+  .planadd{position:absolute;left:50%;transform:translateX(-50%);bottom:2.5%;width:min(220px,42%);z-index:8;}
+  .branchlabel{position:absolute;z-index:9;cursor:pointer;font-family:'Cinzel';font-weight:600;font-size:11px;letter-spacing:.4px;color:var(--brass-l);background:rgba(18,12,7,.72);padding:2px 9px;border:1px solid var(--brass-d);border-radius:12px;text-shadow:0 1px 2px #000;white-space:nowrap;}
+  .room.addcell{background:rgba(42,31,17,.55);border:2px dashed var(--brass-d);box-shadow:none;color:var(--brass);}
+  .room.addcell .ct{justify-content:center;font-size:18px;color:var(--brass-l);}
+  .room.addcell .note{text-align:center;}
+  .room.addcell .empty{font-style:normal;font-family:'Special Elite';font-size:9px;letter-spacing:1px;color:var(--brass);opacity:.8;}
+
+  /* room/zone cell */
+  .cell{
+    position:relative;border-radius:8px;cursor:pointer;overflow:hidden;
+    background:linear-gradient(160deg,#efe4c6,var(--parch) 55%,var(--parch-d));
+    color:var(--ink);border:2px solid #b09a66;
+    box-shadow:inset 0 0 0 1px rgba(255,255,255,.4), 0 6px 14px rgba(0,0,0,.45);
+    padding:10px 11px;display:flex;flex-direction:column;min-height:78px;
+    transition:transform .12s, box-shadow .12s;
+  }
+  .cell:active{transform:scale(.975);}
+  .cell::after{
+    content:"";position:absolute;inset:3px;border:1px solid rgba(74,58,28,.35);border-radius:5px;pointer-events:none;
+  }
+  .cell .ct{font-family:'Cinzel';font-weight:700;font-size:13px;letter-spacing:.3px;display:flex;align-items:center;gap:6px;}
+  .cell .ic{font-size:15px;}
+  .cell .cbody{font-size:12.5px;line-height:1.35;margin-top:5px;color:#4a3a22;flex:1;overflow:hidden;}
+  .cell .empty{font-style:italic;opacity:.5;}
+  .chip{
+    display:inline-block;font-family:'Special Elite';font-size:10.5px;
+    background:#2a1d0a;color:var(--brass-l);padding:1px 7px;border-radius:10px;margin:2px 3px 0 0;
+  }
+  .qty{float:right;font-family:'Special Elite';color:var(--copper);}
+  .gauge-row{display:flex;align-items:center;gap:6px;font-size:11px;margin-top:3px;}
+  .gauge{flex:1;height:8px;background:#3a2a18;border-radius:5px;overflow:hidden;border:1px solid #1a120a;}
+  .gauge i{display:block;height:100%;border-radius:5px;}
+  .status-dot{width:9px;height:9px;border-radius:50%;display:inline-block;box-shadow:0 0 6px currentColor;}
+
+  /* ===== Drawer (editor) ===== */
+  .scrim{position:absolute;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity .2s;z-index:20;}
+  .scrim.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:absolute;top:0;right:0;height:100%;width:min(440px,92%);z-index:21;
+    background:linear-gradient(180deg,#201810,#140e08);
+    border-left:3px solid var(--brass-d);box-shadow:-12px 0 40px rgba(0,0,0,.7);
+    transform:translateX(105%);transition:transform .26s cubic-bezier(.22,.7,.3,1);
+    display:flex;flex-direction:column;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{
+    padding:16px 18px;border-bottom:2px solid var(--brass-d);
+    display:flex;align-items:flex-start;gap:10px;background:#160f08;
+  }
+  .drawer-head .dt{flex:1;}
+  .drawer-head .kicker{font-family:'Special Elite';font-size:10px;letter-spacing:2px;color:var(--brass);text-transform:uppercase;}
+  .drawer-head input.title{
+    font-family:'Cinzel';font-weight:700;font-size:19px;color:var(--brass-l);
+    background:transparent;border:none;border-bottom:1px dashed transparent;outline:none;width:100%;padding:2px 0;
+  }
+  .drawer-head input.title:focus{border-bottom-color:var(--brass-d);}
+  .x-btn{
+    width:36px;height:36px;border-radius:8px;flex-shrink:0;cursor:pointer;
+    background:#2a1d0a;color:var(--brass);border:1px solid var(--brass-d);font-size:20px;
+    display:grid;place-items:center;
+  }
+  .drawer-body{flex:1;overflow-y:auto;padding:16px 18px 30px;}
+  .field{margin-bottom:18px;}
+  .field>label{display:block;font-family:'Special Elite';font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--brass);margin-bottom:7px;}
+  textarea,.txt{
+    width:100%;font-family:'Spectral';font-size:15px;color:var(--parch);
+    background:#0e0a06;border:1px solid #4a3a1c;border-radius:7px;padding:10px 11px;outline:none;resize:vertical;
+  }
+  textarea:focus,.txt:focus{border-color:var(--brass);box-shadow:0 0 0 2px rgba(202,162,74,.18);}
+  textarea{min-height:90px;line-height:1.4;}
+
+  /* list editor (resources / items / occupants) */
+  .list-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;}
+  .list-row .name{flex:1;}
+  .list-row .num{width:78px;text-align:center;}
+  .del{width:34px;height:40px;flex-shrink:0;border-radius:7px;background:#2a1410;color:var(--red);border:1px solid #5a2418;font-size:18px;cursor:pointer;}
+  .add-btn{
+    width:100%;margin-top:4px;padding:10px;cursor:pointer;
+    font-family:'Cinzel';font-weight:600;font-size:13px;letter-spacing:.5px;
+    background:linear-gradient(180deg,#2c2113,#1a130b);color:var(--brass-l);
+    border:1.5px dashed var(--brass-d);border-radius:8px;
+  }
+  .add-btn:active{transform:scale(.98);}
+
+  /* engine controls */
+  .seg{display:flex;gap:6px;}
+  .seg button{
+    flex:1;padding:10px;font-family:'Cinzel';font-weight:600;font-size:13px;cursor:pointer;
+    background:#0e0a06;border:1.5px solid #4a3a1c;border-radius:7px;color:var(--parch-d);
+  }
+  .seg button.on[data-v="ok"]{background:#1c2c18;border-color:var(--green);color:var(--green);}
+  .seg button.on[data-v="warn"]{background:#2e2410;border-color:var(--amber);color:var(--amber);}
+  .seg button.on[data-v="bad"]{background:#2c1410;border-color:var(--red);color:var(--red);}
+  .slider-wrap{display:flex;align-items:center;gap:12px;}
+  input[type=range]{flex:1;accent-color:var(--brass);}
+  .slider-wrap .val{font-family:'Special Elite';color:var(--copper);width:48px;text-align:right;}
+
+  .hint{font-family:'Special Elite';font-size:10px;letter-spacing:1px;color:var(--steel);text-align:center;padding:8px;}
+  .toast{
+    position:absolute;bottom:14px;left:50%;transform:translateX(-50%) translateY(40px);
+    background:#0e0a06;border:1px solid var(--brass-d);color:var(--brass-l);
+    font-family:'Special Elite';font-size:11px;letter-spacing:1px;padding:7px 16px;border-radius:20px;
+    opacity:0;transition:all .3s;z-index:50;pointer-events:none;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+  ::-webkit-scrollbar{width:8px;}
+  ::-webkit-scrollbar-thumb{background:var(--brass-d);border-radius:4px;}
+
+  /* rank / hierarchy cards */
+  .cell.rank{min-width:148px;max-width:210px;min-height:64px;flex:0 0 auto;text-align:center;align-items:center;}
+  .cell.rank .ct{justify-content:center;}
+  .cell.rank .cbody{margin-top:6px;text-align:center;}
+  .cell.rank.top{
+    background:linear-gradient(160deg,#f4e9c8,var(--brass) 65%,var(--brass-d));
+    border-color:#6a531f;box-shadow:0 0 0 1px #000,0 8px 24px rgba(202,162,74,.4);min-width:196px;
+  }
+  .cell.rank.top .ct{font-family:'Cinzel Decorative';font-size:15px;}
+  .conn{width:2px;height:24px;background:linear-gradient(var(--brass-d),rgba(202,162,74,.15));margin:2px auto;}
+</style>
+</head>
+<body>
+<div class="app">
+  <header>
+    <div class="crest" id="crest">⚙</div>
+    <div class="ship-title">
+      <div class="label">Бортовой журнал · вид сверху</div>
+      <input class="ship-name" id="shipName" value="Небесный Странник" spellcheck="false">
+    </div>
+    <nav id="nav"></nav>
+  </header>
+
+  <div class="stage">
+    <div class="deck-heading" id="deckHeading"></div>
+    <div class="hull" id="hull">
+      <div class="deck-grid" id="deck"></div>
+    </div>
+    <div class="toast" id="toast">Сохранено</div>
+  </div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <div class="dt">
+      <div class="kicker" id="drawerKicker">Отсек</div>
+      <input class="title" id="drawerTitle" spellcheck="false">
+    </div>
+    <button class="x-btn" id="closeDrawer">×</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+
+<script>
+/* ============ DEFAULT DATA ============ */
+const DEFAULT = {
+  shipName:"Небесный Странник",
+  upper:{ zones:[
+    {id:"u1",name:"Капитанский мостик",note:""},
+    {id:"u2",name:"Штурвал / Навигация",note:""},
+    {id:"u3",name:"Гнездо наблюдателя",note:""},
+    {id:"u4",name:"Баллистические установки",note:""},
+    {id:"u5",name:"Швартовочный пост",note:""},
+    {id:"u6",name:"Сигнальная мачта",note:""},
+  ]},
+  cabins:[
+    {id:"c1",name:"Каюта 1",occupants:""},
+    {id:"c2",name:"Каюта 2",occupants:""},
+    {id:"c3",name:"Каюта 3",occupants:""},
+    {id:"c4",name:"Каюта 4",occupants:""},
+    {id:"c5",name:"Капитанская каюта",occupants:""},
+    {id:"c6",name:"Общая кают-компания",occupants:""},
+  ],
+  cabinsPlan:{
+    cab1:{name:"Каюта 1", slots:["","","",""]},
+    cab2:{name:"Каюта 2", slots:["","","",""]},
+    cab3:{name:"Каюта 3", slots:["","","",""]},
+    capt:{name:"Капитанская каюта", slots:["","","",""]},
+    mess:{name:"Кают-компания", note:""},
+    galley:{name:"Кухня", note:""},
+    headShared:{name:"Туалет / Душ (общий)", note:""},
+    headCapt:{name:"С/У капитана", note:""},
+  },
+  engineering:{
+    workshops:[
+      {id:"w1",name:"Кузница",resources:[{id:"r1",name:"Уголь",qty:"40"},{id:"r2",name:"Железные слитки",qty:"12"}]},
+      {id:"w2",name:"Алхимическая",resources:[{id:"r3",name:"Эфирная эссенция",qty:"5"}]},
+      {id:"w3",name:"Верстак инженера",resources:[{id:"r4",name:"Запчасти",qty:"8"}]},
+    ],
+    engine:{ status:"ok", resources:[
+      {id:"e1",name:"Топливо (эфир)",val:75},
+      {id:"e2",name:"Давление котла",val:60},
+      {id:"e3",name:"Износ механизма",val:20},
+    ]},
+    cpu:{ status:"ok", resources:[
+      {id:"cpu1",name:"Подача энергии",val:80},
+      {id:"cpu2",name:"Нагрузка систем",val:45},
+      {id:"cpu3",name:"Целостность контуров",val:90},
+    ]},
+    misc:{ name:"Помещение", note:"" }
+  },
+  storage:{ holds:[
+    {id:"h1",name:"Носовой трюм",crane:{status:"ok"},compartments:[
+      {id:"s1",name:"Отсек А",items:[{id:"i1",name:"Провизия",qty:"30 дней"}]},
+      {id:"s2",name:"Отсек Б",items:[]},
+    ]},
+    {id:"h2",name:"Центральный трюм",crane:{status:"ok"},compartments:[
+      {id:"s3",name:"Отсек А",items:[{id:"i2",name:"Пресная вода",qty:"200 л"}]},
+      {id:"s4",name:"Отсек Б",items:[]},
+    ]},
+    {id:"h3",name:"Кормовой трюм",crane:{status:"ok"},compartments:[
+      {id:"s5",name:"Отсек А",items:[]},
+      {id:"s6",name:"Отсек Б",items:[{id:"i3",name:"Трофеи",qty:"?"}]},
+    ]},
+  ]},
+  roster:[
+    {id:"p1",title:"Капитан",person:"",tier:0},
+    {id:"p2",title:"Старший помощник",person:"",tier:1},
+    {id:"p3",title:"Боцман",person:"",tier:2},
+    {id:"p4",title:"Главный механик",person:"",tier:2},
+    {id:"p5",title:"Штурман",person:"",tier:2},
+    {id:"p6",title:"Судовой врач",person:"",tier:2},
+    {id:"p7",title:"Матрос",person:"",tier:3},
+    {id:"p8",title:"Матрос",person:"",tier:3},
+    {id:"p9",title:"Юнга",person:"",tier:3},
+  ],
+  command:{
+    captain:{title:"Капитан", person:""},
+    branches:[
+      {id:"b1",name:"Палубная команда",members:[
+        {id:"m1",title:"Боцман",person:""},
+        {id:"m2",title:"Матрос",person:""},
+        {id:"m3",title:"Юнга",person:""},
+      ]},
+      {id:"b2",name:"Навигация",members:[
+        {id:"m4",title:"Старший помощник",person:""},
+        {id:"m5",title:"Штурман",person:""},
+        {id:"m6",title:"Рулевой",person:""},
+      ]},
+      {id:"b3",name:"Машинная команда",members:[
+        {id:"m7",title:"Главный механик",person:""},
+        {id:"m8",title:"Кочегар",person:""},
+        {id:"m9",title:"Судовой врач",person:""},
+      ]},
+    ]
+  }
+};
+
+/* ============ STATE + STORAGE ============ */
+let state = structuredClone(DEFAULT);
+let activeDeck = "upper";
+let saveTimer = null;
+
+function migrate(){
+  for(const k in DEFAULT){ if(!(k in state)) state[k]=structuredClone(DEFAULT[k]); }
+  if(state.engineering && !state.engineering.cpu) state.engineering.cpu=structuredClone(DEFAULT.engineering.cpu);
+  if(state.engineering && !state.engineering.misc) state.engineering.misc=structuredClone(DEFAULT.engineering.misc);
+  if(!state.cabinsPlan) state.cabinsPlan=structuredClone(DEFAULT.cabinsPlan);
+  if(state.storage && state.storage.holds) state.storage.holds.forEach(h=>{ if(!h.crane) h.crane={status:'ok'}; });
+  if(!state.command){
+    state.command=structuredClone(DEFAULT.command);
+    if(Array.isArray(state.roster)){
+      const byTitle={};
+      state.roster.forEach(p=>{ if(p.person&&p.person.trim()&&!byTitle[p.title]) byTitle[p.title]=p.person; });
+      if(byTitle['Капитан']) state.command.captain.person=byTitle['Капитан'];
+      state.command.branches.forEach(br=>br.members.forEach(m=>{ if(byTitle[m.title]) m.person=byTitle[m.title]; }));
+    }
+  }
+  if(state.command && state.command.branches) state.command.branches.forEach(br=>br.members.forEach((m,i)=>{ if(m.level==null) m.level=i; }));
+}
+const hasCloudStore = ()=> (typeof window!=='undefined' && window.storage && typeof window.storage.get==='function');
+async function load(){
+  let raw=null;
+  try{
+    if(hasCloudStore()){
+      const r = await window.storage.get('airship');
+      if(r && r.value) raw=r.value;
+    }
+  }catch(e){ /* нет облачного хранилища */ }
+  if(!raw){ try{ raw=localStorage.getItem('airship'); }catch(e){} }
+  if(raw){ try{ state=JSON.parse(raw); }catch(e){} }
+  migrate();
+  document.getElementById('shipName').value = state.shipName || "Дирижабль";
+  render();
+}
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async ()=>{
+    const json=JSON.stringify(state);
+    let ok=false;
+    try{
+      if(hasCloudStore()){ await window.storage.set('airship', json); ok=true; }
+    }catch(e){}
+    try{ localStorage.setItem('airship', json); ok=true; }catch(e){}
+    toast(ok?"Сохранено":"Ошибка сохранения");
+  },400);
+}
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),1400);
+}
+const uid = ()=> Math.random().toString(36).slice(2,8);
+
+/* ============ DECK CONFIG ============ */
+const DECKS = [
+  {key:"upper", lvl:"I",  name:"Верхняя палуба",   sub:"Открытая верхняя палуба · посты и установки", icon:"⚓"},
+  {key:"cabins",lvl:"II", name:"Палуба кают",      sub:"Жилые каюты экипажа", icon:"🛏"},
+  {key:"engineering",lvl:"III",name:"Инженерная палуба",sub:"Мастерские · двигатель", icon:"⚙"},
+  {key:"storage",lvl:"IV",name:"Складская палуба", sub:"Три трюма · грузовые отсеки", icon:"📦"},
+  {key:"roster",lvl:"V", name:"Командная палуба", sub:"Иерархия должностей · от капитана до матроса", icon:"⚜"},
+];
+
+/* ============ RENDER NAV ============ */
+function renderNav(){
+  const nav=document.getElementById('nav');
+  nav.innerHTML='';
+  DECKS.forEach(d=>{
+    const b=document.createElement('div');
+    b.className='deck-tab'+(activeDeck===d.key?' active':'');
+    b.innerHTML=`<span class="lvl">${d.lvl}</span>${d.name}`;
+    b.onclick=()=>{activeDeck=d.key;render();};
+    nav.appendChild(b);
+  });
+}
+
+/* ============ RENDER DECK ============ */
+function render(){
+  renderNav();
+  const meta=DECKS.find(d=>d.key===activeDeck);
+  document.getElementById('deckHeading').innerHTML=`${meta.icon} ${meta.name}<small>${meta.sub}</small>`;
+  const grid=document.getElementById('deck');
+  grid.innerHTML='';
+  grid.style.display='grid';
+  grid.style.alignContent='center';
+  grid.style.alignItems='stretch';
+  grid.style.flexDirection='';
+  grid.style.overflowY='visible';
+  grid.style.padding='';
+  grid.style.position='';
+  document.getElementById('hull').classList.add('plain');
+  if(activeDeck==='upper') renderUpper(grid);
+  if(activeDeck==='cabins') renderCabins(grid);
+  if(activeDeck==='engineering') renderEngineering(grid);
+  if(activeDeck==='storage') renderStorage(grid);
+  if(activeDeck==='roster') renderRoster(grid);
+}
+
+function makeCell(cols){ /* helper sets grid columns */ }
+
+function cell(title,icon,bodyHtml,onClick){
+  const c=document.createElement('div');
+  c.className='cell';
+  c.innerHTML=`<div class="ct"><span class="ic">${icon}</span>${title}</div><div class="cbody">${bodyHtml||'<span class="empty">пусто — нажми, чтобы заполнить</span>'}</div>`;
+  c.onclick=onClick;
+  return c;
+}
+
+/* ===== Ship-plan framework (shared by all decks) ===== */
+const HULL_D="M30 300 C70 140 170 70 250 60 L820 60 C900 66 975 160 985 300 C975 440 900 534 820 540 L250 540 C170 530 70 460 30 300 Z";
+function startPlan(grid){
+  grid.style.display='block';grid.style.position='relative';grid.style.padding='0';grid.style.overflow='visible';
+  return `<svg class="plansvg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+    <defs><linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#322615"/><stop offset="0.5" stop-color="#241a0e"/><stop offset="1" stop-color="#19110a"/></linearGradient></defs>
+    <path d="${HULL_D}" fill="url(#wood)" stroke="#8a6c2c" stroke-width="7"/>
+    <path d="${HULL_D}" fill="none" stroke="#caa24a" stroke-width="1.5" opacity="0.45" transform="translate(500,300) scale(0.965) translate(-500,-300)"/>
+    <line x1="255" y1="300" x2="900" y2="300" stroke="#caa24a" stroke-width="1" opacity="0.12"/></svg>`;
+}
+function corridorHtml(cfg){
+  cfg=cfg||{};
+  const L=cfg.left!=null?cfg.left:24, W=cfg.width!=null?cfg.width:57;
+  let h='';
+  if(cfg.showCorridor!==false)
+    h+=`<div class="corridor" style="left:${L}%;top:47.75%;width:${W}%;height:4.5%"><span class="lbl">коридор</span></div>`;
+  (cfg.stairs||[]).forEach(s=>{
+    const x = s.side==='bow' ? 9 : 85;
+    h+=`<div class="stair" style="left:${x}%;top:44.3%;width:7.5%;height:11.4%"><span class="si">${s.dir==='up'?'↑':'↓'}</span>${s.dir==='up'?'верх':'низ'}</div>`;
+  });
+  h+=`<div class="caplabel" style="left:6.5%;top:29%">нос</div>`
+   +`<div class="caplabel" style="left:90%;top:29%">корма</div>`;
+  return h;
+}
+function addRoom(grid,pos,titleHtml,bodyHtml,extraClass,onClick){
+  const d=document.createElement('div');
+  d.className='room'+(extraClass?' '+extraClass:'');
+  d.style.cssText=`left:${pos[0]}%;top:${pos[1]}%;width:${pos[2]}%;height:${pos[3]}%`;
+  d.innerHTML=`<div class="ct">${titleHtml}</div>${bodyHtml}`;
+  if(onClick)d.onclick=onClick;
+  grid.appendChild(d);
+  return d;
+}
+const noteBody=txt=>`<div class="note">${txt&&txt.trim()?esc(txt).replace(/\n/g,'<br>'):'<span class="empty">нажми, чтобы заполнить</span>'}</div>`;
+const chipsBody=(str,empty)=>{
+  const parts=(str||'').split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
+  return `<div class="note">${parts.length?parts.map(x=>`<span class="chip">${esc(x)}</span>`).join(''):'<span class="empty">'+empty+'</span>'}</div>`;
+};
+
+/* ---- I · Upper deck ---- */
+function renderUpper(grid){
+  grid.innerHTML=startPlan(grid)+corridorHtml({left:24,width:57,stairs:[{side:'stern',dir:'down'}]});
+  const pos=[[24,14,17,31],[42,14,17,31],[60,14,21,31],[24,54,17,31],[42,54,17,31],[60,54,21,31]];
+  state.upper.zones.forEach((z,i)=>{
+    if(i>5)return;
+    addRoom(grid,pos[i],`<span class="ic">❖</span>${esc(z.name)}`,noteBody(z.note),null,()=>editUpper(z));
+  });
+}
+
+/* ---- II · Cabins ---- */
+function renderCabins(grid){
+  grid.innerHTML=startPlan(grid)+corridorHtml({left:18.5,width:66,stairs:[{side:'bow',dir:'up'},{side:'stern',dir:'down'}]});
+  const P=state.cabinsPlan;
+  const slots=r=>`<div class="slots">`+r.slots.map((s,i)=>`<div class="slot${s?'':' empty'}"><span class="bn">${i+1}</span>${s?esc(s):'койка'}</div>`).join('')+`</div>`;
+  // top row: 2 cabins + captain (1.5×) + captain head
+  addRoom(grid,[18.5,14,15,31],`<span class="ic">🛏</span>${esc(P.cab1.name)}`,slots(P.cab1),null,()=>editCabinRoom('cab1'));
+  addRoom(grid,[34.5,14,15,31],`<span class="ic">🛏</span>${esc(P.cab2.name)}`,slots(P.cab2),null,()=>editCabinRoom('cab2'));
+  addRoom(grid,[50.5,14,22,31],`<span class="ic">⚓</span>${esc(P.capt.name)}`,slots(P.capt),'big',()=>editCabinRoom('capt'));
+  addRoom(grid,[73.5,14,11,31],`<span class="ic">🚿</span>${esc(P.headCapt.name)}`,noteBody(P.headCapt.note),'half',()=>editServiceRoom('headCapt'));
+  // bottom row: cabin 3 + shared head + mess + galley
+  addRoom(grid,[18.5,54,15,31],`<span class="ic">🛏</span>${esc(P.cab3.name)}`,slots(P.cab3),null,()=>editCabinRoom('cab3'));
+  addRoom(grid,[34.5,54,15,31],`<span class="ic">🚿</span>${esc(P.headShared.name)}`,noteBody(P.headShared.note),null,()=>editServiceRoom('headShared'));
+  addRoom(grid,[50.5,54,17,31],`<span class="ic">🍷</span>${esc(P.mess.name)}`,noteBody(P.mess.note),null,()=>editServiceRoom('mess'));
+  addRoom(grid,[68,54,16.5,31],`<span class="ic">🍳</span>${esc(P.galley.name)}`,noteBody(P.galley.note),null,()=>editServiceRoom('galley'));
+}
+
+/* ---- III · Engineering ---- */
+function renderEngineering(grid){
+  grid.innerHTML=startPlan(grid)+corridorHtml({left:18,width:66,stairs:[{side:'bow',dir:'up'},{side:'stern',dir:'down'}]});
+  const powerBody=mod=>{
+    const c=mod.status==='ok'?'var(--green)':mod.status==='warn'?'var(--amber)':'var(--red)';
+    const t=mod.status==='ok'?'В норме':mod.status==='warn'?'Внимание':'Повреждён';
+    const g=mod.resources.map(r=>{
+      const inv=r.name.toLowerCase().includes('износ')||r.name.toLowerCase().includes('нагрузк');
+      const col=inv?(r.val>60?'var(--red)':r.val>30?'var(--amber)':'var(--green)'):(r.val<25?'var(--red)':r.val<50?'var(--amber)':'var(--green)');
+      return `<div class="gauge-row">${esc(r.name)}<div class="gauge"><i style="width:${r.val}%;background:${col}"></i></div><span class="qty">${r.val}%</span></div>`;
+    }).join('');
+    return `<div class="note"><div style="display:flex;align-items:center;gap:6px;font-family:'Cinzel';font-weight:600;font-size:12px"><span class="status-dot" style="color:${c}"></span>${t}</div>${g}</div>`;
+  };
+  const wkBody=w=>noteBody(w.resources.length?w.resources.map(r=>`${esc(r.name)} — ${esc(r.qty)}`).join('\n'):'');
+  const W=state.engineering.workshops;
+  if(W[0]) addRoom(grid,[18,14,17,31],`<span class="ic">🛠</span>${esc(W[0].name)}`,wkBody(W[0]),null,()=>editWorkshop(W[0]));
+  if(W[1]) addRoom(grid,[36,14,17,31],`<span class="ic">🛠</span>${esc(W[1].name)}`,wkBody(W[1]),null,()=>editWorkshop(W[1]));
+  addRoom(grid,[55,14,29,31],`<span class="ic">🔥</span>Двигатель`,powerBody(state.engineering.engine),'power',()=>editPowerModule(state.engineering.engine,'Двигатель','силовая установка'));
+  if(W[2]) addRoom(grid,[18,54,17,31],`<span class="ic">🛠</span>${esc(W[2].name)}`,wkBody(W[2]),null,()=>editWorkshop(W[2]));
+  const M=state.engineering.misc;
+  addRoom(grid,[36,54,17,31],`<span class="ic">▦</span>${esc(M.name)}`,noteBody(M.note),null,()=>editGenericRoom(M,'Инженерная палуба · помещение'));
+  addRoom(grid,[55,54,29,31],`<span class="ic">🖥</span>ЦПУ`,powerBody(state.engineering.cpu),'power',()=>editPowerModule(state.engineering.cpu,'ЦПУ','центральный пост управления'));
+}
+
+/* ---- IV · Storage ---- */
+function renderStorage(grid){
+  grid.innerHTML=startPlan(grid)
+   +`<div class="caplabel" style="left:6.5%;top:48%">нос</div>`
+   +`<div class="caplabel" style="left:90%;top:20%">корма</div>`
+   +`<div class="stair" style="left:85%;top:44.3%;width:8%;height:11.4%"><span class="si">↑</span>верх</div>`;
+  const cols=[[22,19],[42,19],[62,20]]; // [left,width] bow -> stern
+  const itemsBody=c=>noteBody(c.items.length?c.items.map(it=>`${esc(it.name)} — ${esc(it.qty)}`).join('\n'):'');
+  state.storage.holds.forEach((h,hi)=>{
+    if(hi>2)return;
+    const [l,w]=cols[hi];
+    const cr=h.crane||{status:'ok'};
+    const cc=cr.status==='ok'?'var(--green)':cr.status==='warn'?'var(--amber)':'var(--red)';
+    const ct=cr.status==='ok'?'исправен':cr.status==='warn'?'нужен ремонт':'повреждён';
+    addRoom(grid,[l,14,w,8.5],`<span class="ic">⚓</span>${esc(h.name)}`,
+      `<div class="cranerow">🏗 Кран:<span class="status-dot" style="color:${cc};margin:0 5px"></span>${ct}</div>`,'crane',()=>editCrane(h));
+    const c0=h.compartments[0],c1=h.compartments[1];
+    if(c0) addRoom(grid,[l,24,w,24],`<span class="ic">▣</span>${esc(c0.name)}`,itemsBody(c0),null,()=>editCompartment(h,c0));
+    if(c1) addRoom(grid,[l,50,w,24],`<span class="ic">▣</span>${esc(c1.name)}`,itemsBody(c1),null,()=>editCompartment(h,c1));
+  });
+}
+
+/* ---- V · Command (captain root + branches -> stern) ---- */
+function renderRoster(grid){
+  const C=state.command;
+  C.branches.forEach(br=>br.members.forEach((m,i)=>{ if(m.level==null) m.level=i; }));
+  const nb=C.branches.length||1;
+  const top=15, bottom=85, gap=7;
+  const cardH=Math.min(15,(bottom-top-gap*(nb-1))/nb);
+  const blockH=nb*cardH+(nb-1)*gap;
+  const y0all=(top+bottom)/2 - blockH/2;
+  const startX=33, endX=87;
+  let maxCol=1;
+  C.branches.forEach(br=>{ const ml=br.members.length?Math.max(...br.members.map(m=>m.level)):-1; maxCol=Math.max(maxCol, ml+1); });
+  const nCols=maxCol+1;
+  const step=Math.min(13,(endX-startX)/nCols);
+  const cw=Math.max(8.5,step-1.5);
+  const colX=c=>startX+c*step;
+  const capt={x:17,w:13,h:16}; capt.y=50-capt.h/2;
+  const captRight={x:capt.x+capt.w, y:50};
+  const cards=[], labels=[], lines=[];
+  cards.push({pos:[capt.x,capt.y,capt.w,capt.h],title:`<span class="ic">★</span>${esc(C.captain.title)}`,body:chipsBody(C.captain.person,'вакансия'),cls:'rank2 top',onClick:editCaptain});
+  C.branches.forEach((br,bi)=>{
+    const rowTop=y0all+bi*(cardH+gap);
+    const cy=rowTop+cardH/2;
+    const cols=br.members.map(m=>m.level);
+    const lo=cols.length?Math.min(...cols):0, hi=cols.length?Math.max(...cols):0;
+    lines.push({x1:captRight.x,y1:captRight.y,x2:colX(lo),y2:cy});
+    if(cols.length) lines.push({x1:colX(lo),y1:cy,x2:colX(hi)+cw,y2:cy});
+    // group by level; stack vertically within a column so cards never overlap
+    const byLevel={};
+    br.members.forEach(m=>{ (byLevel[m.level]=byLevel[m.level]||[]).push(m); });
+    Object.keys(byLevel).forEach(L=>{
+      const arr=byLevel[L], k=arr.length, sg=k>1?1.4:0, sh=(cardH-sg*(k-1))/k;
+      arr.forEach((mb,j)=>{
+        cards.push({pos:[colX(+L),rowTop+j*(sh+sg),cw,sh],title:`<span class="ic">✦</span>${esc(mb.title)}`,body:chipsBody(mb.person,'вакансия'),cls:'rank2',onClick:()=>editNode(br,mb)});
+      });
+    });
+    const addCol=(cols.length?hi:-1)+1;
+    cards.push({pos:[colX(addCol),rowTop,cw,cardH],title:`<span class="ic" style="opacity:.6">＋</span>`,body:`<div class="note"><span class="empty">уровень</span></div>`,cls:'rank2 addcell',onClick:()=>{br.members.push({id:uid(),title:'Новая должность',person:'',level:addCol});save();render();}});
+    labels.push({x:colX((lo+hi)/2)+cw/2, y:rowTop-4.5, text:br.name, onClick:()=>editBranch(br)});
+  });
+  const threads=lines.map(l=>`<line x1="${l.x1*10}" y1="${l.y1*6}" x2="${l.x2*10}" y2="${l.y2*6}" stroke="#caa24a" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>`).join('');
+  grid.innerHTML=startPlan(grid)
+   +`<div class="caplabel" style="left:6%;top:8%">нос · капитан</div>`
+   +`<div class="caplabel" style="left:79%;top:8%">корма · команда</div>`
+   +`<svg class="threads" viewBox="0 0 1000 600" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none">${threads}</svg>`;
+  cards.forEach(c=>addRoom(grid,c.pos,c.title,c.body,c.cls,c.onClick));
+  labels.forEach(l=>{
+    const d=document.createElement('div');d.className='branchlabel';
+    d.style.cssText=`left:${l.x}%;top:${l.y}%;transform:translateX(-50%);`;
+    d.textContent=l.text;d.onclick=l.onClick;
+    grid.appendChild(d);
+  });
+  const add=document.createElement('button');add.className='add-btn planadd';add.textContent='+ Ветка';
+  add.onclick=()=>{state.command.branches.push({id:uid(),name:'Новая ветка',members:[{id:uid(),title:'Должность',person:'',level:0}]});save();render();};
+  grid.appendChild(add);
+}
+function editCaptain(){
+  const c=state.command.captain;
+  dKicker.textContent='Командная палуба · капитан';
+  dTitle.readOnly=false; dTitle.value=c.title; dTitle.oninput=e=>{c.title=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Кто занимает</label>';
+  const inp=document.createElement('input');inp.className='txt';inp.value=c.person||'';inp.placeholder='Имя';
+  inp.oninput=e=>{c.person=e.target.value;save();};
+  f.appendChild(inp);dBody.appendChild(f);
+  openDrawer();
+}
+function editNode(branch,node){
+  dKicker.textContent='Командная палуба · '+branch.name;
+  dTitle.readOnly=false; dTitle.value=node.title; dTitle.oninput=e=>{node.title=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Кто занимает</label>';
+  const inp=document.createElement('input');inp.className='txt';inp.value=node.person||'';inp.placeholder='Имя';
+  inp.oninput=e=>{node.person=e.target.value;save();};
+  f.appendChild(inp);dBody.appendChild(f);
+
+  const bf=document.createElement('div');bf.className='field';
+  bf.innerHTML='<label>Ветка (служба)</label>';
+  const bseg=document.createElement('div');bseg.className='seg';bseg.style.flexWrap='wrap';
+  state.command.branches.forEach(b=>{
+    const btn=document.createElement('button');btn.dataset.v='ok';btn.textContent=b.name;btn.style.flex='1 1 42%';
+    if(b===branch)btn.classList.add('on');
+    btn.onclick=()=>{
+      if(b===branch)return;
+      const i=branch.members.indexOf(node); if(i>-1)branch.members.splice(i,1);
+      b.members.push(node); save(); render(); editNode(b,node);
+    };
+    bseg.appendChild(btn);
+  });
+  bf.appendChild(bseg);dBody.appendChild(bf);
+
+  const lf=document.createElement('div');lf.className='field';
+  lf.innerHTML='<label>Уровень (0 = у капитана, дальше = ниже по званию)</label>';
+  const sw=document.createElement('div');sw.className='seg';
+  const up=document.createElement('button');up.textContent='◀ выше';
+  const lvl=document.createElement('button');lvl.style.flex='0 0 84px';lvl.style.pointerEvents='none';lvl.style.color='var(--brass-l)';lvl.textContent='Ур. '+node.level;
+  const dn=document.createElement('button');dn.textContent='ниже ▶';
+  up.onclick=()=>{ if(node.level>0){ node.level--; lvl.textContent='Ур. '+node.level; save(); render(); } };
+  dn.onclick=()=>{ node.level++; lvl.textContent='Ур. '+node.level; save(); render(); };
+  sw.appendChild(up);sw.appendChild(lvl);sw.appendChild(dn);lf.appendChild(sw);dBody.appendChild(lf);
+
+  const del=document.createElement('button');del.className='add-btn';
+  del.style.borderStyle='solid';del.style.borderColor='#5a2418';del.style.color='var(--red)';
+  del.textContent='🗑 Удалить должность';
+  del.onclick=()=>{const i=branch.members.indexOf(node);if(i>-1)branch.members.splice(i,1);save();closeDrawer();};
+  dBody.appendChild(del);
+  openDrawer();
+}
+function editBranch(branch){
+  dKicker.textContent='Командная палуба · ветка (служба)';
+  dTitle.readOnly=false; dTitle.value=branch.name; dTitle.oninput=e=>{branch.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const hint=document.createElement('div');hint.className='hint';
+  hint.textContent='Название ветки. Должности внутри редактируются по тапу, новые добавляются кнопкой «＋» в конце ветки.';
+  dBody.appendChild(hint);
+  if(state.command.branches.length>1){
+    const del=document.createElement('button');del.className='add-btn';
+    del.style.borderStyle='solid';del.style.borderColor='#5a2418';del.style.color='var(--red)';
+    del.textContent='🗑 Удалить ветку целиком';
+    del.onclick=()=>{const i=state.command.branches.indexOf(branch);if(i>-1)state.command.branches.splice(i,1);save();closeDrawer();};
+    dBody.appendChild(del);
+  }
+  openDrawer();
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+
+/* ============ DRAWER ENGINE ============ */
+const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim'),
+      dBody=document.getElementById('drawerBody'), dTitle=document.getElementById('drawerTitle'),
+      dKicker=document.getElementById('drawerKicker');
+function openDrawer(){drawer.classList.add('open');scrim.classList.add('open');}
+function closeDrawer(){drawer.classList.remove('open');scrim.classList.remove('open');render();}
+document.getElementById('closeDrawer').onclick=closeDrawer;
+scrim.onclick=closeDrawer;
+
+/* generic list editor builder */
+function listEditor(items,labelName,labelNum,placeholderNum){
+  const box=document.createElement('div');
+  function row(it){
+    const r=document.createElement('div');r.className='list-row';
+    r.innerHTML=`<input class="txt name" value="${esc(it.name)}" placeholder="${labelName}">
+                 <input class="txt num" value="${esc(it.qty)}" placeholder="${placeholderNum||'кол-во'}">
+                 <button class="del">🗑</button>`;
+    const [nm,q]=r.querySelectorAll('input');
+    nm.oninput=e=>{it.name=e.target.value;save();};
+    q.oninput=e=>{it.qty=e.target.value;save();};
+    r.querySelector('.del').onclick=()=>{const i=items.indexOf(it);items.splice(i,1);save();box.replaceChild(document.createComment(''),r);r.remove();};
+    return r;
+  }
+  items.forEach(it=>box.appendChild(row(it)));
+  const add=document.createElement('button');add.className='add-btn';add.textContent='+ Добавить';
+  add.onclick=()=>{const it={id:uid(),name:'',qty:''};items.push(it);box.insertBefore(row(it),add);save();};
+  box.appendChild(add);
+  return box;
+}
+
+/* ---- editors ---- */
+function editUpper(z){
+  dKicker.textContent='Верхняя палуба · пост';
+  dTitle.value=z.name; dTitle.oninput=e=>{z.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Назначение / экипаж / заметки</label>';
+  const ta=document.createElement('textarea');ta.value=z.note||'';ta.placeholder='Кто на посту, состояние, боезапас...';
+  ta.oninput=e=>{z.note=e.target.value;save();};
+  f.appendChild(ta);dBody.appendChild(f);
+  openDrawer();
+}
+function editCabinRoom(key){
+  const r=state.cabinsPlan[key];
+  dKicker.textContent='Палуба кают · каюта';
+  dTitle.readOnly=false;
+  dTitle.value=r.name; dTitle.oninput=e=>{r.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Спальные слоты — 4 койки</label>';
+  r.slots.forEach((s,i)=>{
+    const row=document.createElement('div');row.className='list-row';
+    row.innerHTML=`<span style="font-family:'Special Elite';font-size:11px;color:var(--brass);width:62px;flex-shrink:0">Койка ${i+1}</span>
+                   <input class="txt name" value="${esc(s)}" placeholder="свободна">`;
+    row.querySelector('input').oninput=e=>{r.slots[i]=e.target.value;save();};
+    f.appendChild(row);
+  });
+  dBody.appendChild(f);
+  openDrawer();
+}
+function editServiceRoom(key){
+  const r=state.cabinsPlan[key];
+  dKicker.textContent='Палуба кают · помещение';
+  dTitle.readOnly=false;
+  dTitle.value=r.name; dTitle.oninput=e=>{r.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Заметки / содержимое</label>';
+  const ta=document.createElement('textarea');ta.value=r.note||'';ta.placeholder='Запасы, состояние, заметки...';
+  ta.oninput=e=>{r.note=e.target.value;save();};
+  f.appendChild(ta);dBody.appendChild(f);
+  openDrawer();
+}
+function editWorkshop(w){
+  dKicker.textContent='Инженерная палуба · мастерская';
+  dTitle.value=w.name; dTitle.oninput=e=>{w.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Ресурсы и запасы</label>';
+  f.appendChild(listEditor(w.resources,'Название','кол-во'));
+  dBody.appendChild(f);
+  openDrawer();
+}
+function editPowerModule(mod,label,kicker){
+  dKicker.textContent='Инженерная палуба · '+kicker;
+  dTitle.value=label; dTitle.oninput=null; dTitle.readOnly=true;
+  dBody.innerHTML='';
+  const sf=document.createElement('div');sf.className='field';
+  sf.innerHTML='<label>Состояние</label>';
+  const seg=document.createElement('div');seg.className='seg';
+  [['ok','В норме'],['warn','Внимание'],['bad','Повреждён']].forEach(([v,t])=>{
+    const b=document.createElement('button');b.dataset.v=v;b.textContent=t;
+    if(mod.status===v)b.classList.add('on');
+    b.onclick=()=>{mod.status=v;[...seg.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');save();};
+    seg.appendChild(b);
+  });
+  sf.appendChild(seg);dBody.appendChild(sf);
+  const gf=document.createElement('div');gf.className='field';
+  gf.innerHTML='<label>Ресурсы (%)</label>';
+  function gRow(r){
+    const row=document.createElement('div');row.style.marginBottom='14px';
+    row.innerHTML=`<div style="display:flex;gap:8px;margin-bottom:6px"><input class="txt name" value="${esc(r.name)}" style="flex:1"><button class="del">🗑</button></div>`;
+    const sw=document.createElement('div');sw.className='slider-wrap';
+    const rng=document.createElement('input');rng.type='range';rng.min=0;rng.max=100;rng.value=r.val;
+    const val=document.createElement('span');val.className='val';val.textContent=r.val+'%';
+    rng.oninput=e=>{r.val=+e.target.value;val.textContent=r.val+'%';save();};
+    sw.appendChild(rng);sw.appendChild(val);row.appendChild(sw);
+    row.querySelector('.name').oninput=e=>{r.name=e.target.value;save();};
+    row.querySelector('.del').onclick=()=>{const i=mod.resources.indexOf(r);mod.resources.splice(i,1);save();row.remove();};
+    return row;
+  }
+  mod.resources.forEach(r=>gf.appendChild(gRow(r)));
+  const add=document.createElement('button');add.className='add-btn';add.textContent='+ Добавить параметр';
+  add.onclick=()=>{const r={id:uid(),name:'',val:50};mod.resources.push(r);gf.insertBefore(gRow(r),add);save();};
+  gf.appendChild(add);
+  dBody.appendChild(gf);
+  openDrawer();
+  setTimeout(()=>{dTitle.readOnly=false;},10);
+}
+function editGenericRoom(obj,kicker){
+  dKicker.textContent=kicker;
+  dTitle.readOnly=false; dTitle.value=obj.name; dTitle.oninput=e=>{obj.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Заметки / содержимое</label>';
+  const ta=document.createElement('textarea');ta.value=obj.note||'';ta.placeholder='Что здесь, заметки...';
+  ta.oninput=e=>{obj.note=e.target.value;save();};
+  f.appendChild(ta);dBody.appendChild(f);
+  openDrawer();
+}
+function editCrane(h){
+  if(!h.crane)h.crane={status:'ok'};
+  dKicker.textContent='Складская палуба · '+h.name;
+  dTitle.readOnly=false; dTitle.value=h.name; dTitle.oninput=e=>{h.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Состояние крана</label>';
+  const seg=document.createElement('div');seg.className='seg';
+  [['ok','Исправен'],['warn','Нужен ремонт'],['bad','Повреждён']].forEach(([v,t])=>{
+    const b=document.createElement('button');b.dataset.v=v;b.textContent=t;
+    if(h.crane.status===v)b.classList.add('on');
+    b.onclick=()=>{h.crane.status=v;[...seg.children].forEach(x=>x.classList.remove('on'));b.classList.add('on');save();};
+    seg.appendChild(b);
+  });
+  f.appendChild(seg);dBody.appendChild(f);
+  const hint=document.createElement('div');hint.className='hint';hint.textContent='Содержимое отсеков редактируется по тапу на сами отсеки';
+  dBody.appendChild(hint);
+  openDrawer();
+}
+function editCompartment(hold,s){
+  dKicker.textContent=`Складская палуба · ${hold.name}`;
+  dTitle.value=s.name; dTitle.oninput=e=>{s.name=e.target.value;save();};
+  dBody.innerHTML='';
+  const f=document.createElement('div');f.className='field';
+  f.innerHTML='<label>Что лежит в отсеке</label>';
+  f.appendChild(listEditor(s.items,'Груз','кол-во'));
+  dBody.appendChild(f);
+  openDrawer();
+}
+
+/* ship name */
+document.getElementById('shipName').oninput=e=>{state.shipName=e.target.value;save();};
+
+function editBackup(){
+  dKicker.textContent='Бортовой журнал · данные';
+  dTitle.readOnly=true; dTitle.oninput=null; dTitle.value='Сохранение и копия';
+  dBody.innerHTML='';
+  const info=document.createElement('div');info.className='hint';
+  info.style.textAlign='left';info.style.lineHeight='1.5';info.style.padding='0 0 14px';
+  info.textContent='Данные сохраняются автоматически на этом устройстве. Чтобы перенести их на другой айпад или сделать бэкап — выгрузите файл и загрузите его на другом устройстве.';
+  dBody.appendChild(info);
+
+  const exp=document.createElement('button');exp.className='add-btn';exp.style.borderStyle='solid';exp.style.marginBottom='12px';exp.textContent='⤓ Выгрузить копию (.json)';
+  exp.onclick=()=>{
+    const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+    a.download=(state.shipName||'airship').replace(/[^\wа-яёА-ЯЁ\- ]/gi,'')+'.json';
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(a.href),3000);
+    toast('Файл выгружен');
+  };
+  dBody.appendChild(exp);
+
+  const impLbl=document.createElement('label');impLbl.className='add-btn';impLbl.style.borderStyle='solid';impLbl.style.display='block';impLbl.style.textAlign='center';impLbl.style.marginBottom='16px';impLbl.style.cursor='pointer';impLbl.textContent='⤒ Загрузить копию (.json)';
+  const inp=document.createElement('input');inp.type='file';inp.accept='application/json,.json';inp.style.display='none';
+  inp.onchange=e=>{
+    const f=e.target.files&&e.target.files[0];if(!f)return;
+    const rd=new FileReader();
+    rd.onload=()=>{ try{ const d=JSON.parse(rd.result); state=d; migrate(); save(); document.getElementById('shipName').value=state.shipName||''; closeDrawer(); toast('Данные загружены'); }catch(err){ toast('Файл не распознан'); } };
+    rd.readAsText(f);
+  };
+  impLbl.appendChild(inp);
+  dBody.appendChild(impLbl);
+
+  const reset=document.createElement('button');reset.className='add-btn';reset.style.borderStyle='solid';reset.style.borderColor='#5a2418';reset.style.color='var(--red)';reset.textContent='⟲ Сбросить всё к шаблону';
+  reset.onclick=()=>{ if(confirm('Сбросить все данные к шаблону? Текущие записи будут потеряны.')){ state=structuredClone(DEFAULT); migrate(); save(); document.getElementById('shipName').value=state.shipName; closeDrawer(); } };
+  dBody.appendChild(reset);
+  openDrawer();
+}
+
+/* boot */
+document.getElementById('crest').onclick=editBackup;
+load();
+</script>
+</body>
+</html>
