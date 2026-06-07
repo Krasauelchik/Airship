@@ -309,9 +309,71 @@
   }
   .cell.rank.top .ct{font-family:'Cinzel Decorative';font-size:15px;}
   .conn{width:2px;height:24px;background:linear-gradient(var(--brass-d),rgba(202,162,74,.15));margin:2px auto;}
+  /* ===== Адаптив: телефон + планшет ===== */
+  html,body{overflow-x:hidden;overflow-y:auto;height:auto;min-height:100%;}
+  .app{height:auto;min-height:100vh;min-height:100dvh;}
+  .stage{overflow:visible;}
+  .scrim{position:fixed;}
+  .drawer{position:fixed;}
+  header{flex-wrap:wrap;}
+  .hull.plain{width:min(96%,138vh);aspect-ratio:1000/600;height:auto;max-height:none;}
+
+  @media (max-width:740px), (max-height:480px){
+    .stage{padding:6px;}
+    header{padding:6px 9px;gap:8px;}
+    .crest{width:30px;height:30px;font-size:15px;}
+    .ship-title .label{display:none;}
+    .ship-name{font-size:14px;}
+    nav{gap:5px;}
+    .deck-tab{font-size:9.5px;padding:5px 8px;border-radius:6px;gap:5px;}
+    .deck-tab .lvl{width:15px;height:15px;font-size:8px;}
+    .deck-heading{font-size:9px;letter-spacing:2px;top:4px;}
+    .deck-heading small{font-size:7px;letter-spacing:1px;margin-top:1px;}
+    .hull.plain{width:min(98%,122vh);}
+    .room{padding:4px 5px;border-radius:5px;}
+    .room .ct{font-size:8.5px;gap:3px;line-height:1.05;}
+    .room .ct .ic{font-size:9px;}
+    .room .note{font-size:8px;margin-top:2px;}
+    .room.big .ct{font-size:9px;}
+    .room.half .ct{font-size:7.5px;}
+    .room.half .note{font-size:7px;}
+    .slot{font-size:8px;padding:2px 3px;gap:3px;}
+    .slot .bn{font-size:7px;}
+    .room.power .gauge-row{font-size:7.5px;}
+    .room.power .note>div{font-size:8.5px !important;}
+    .gauge{height:6px;}
+    .room.crane .ct{font-size:8.5px;}
+    .room.crane .cranerow{font-size:8px;}
+    .room.rank2 .ct{font-size:8px;}
+    .room.rank2 .ct .ic{font-size:9px;}
+    .room.rank2 .chip{font-size:7.5px;padding:1px 4px;}
+    .corridor .lbl{font-size:6.5px;letter-spacing:1.5px;}
+    .stair{font-size:6px;}
+    .stair .si{font-size:11px;}
+    .caplabel{font-size:7px;letter-spacing:1.5px;}
+    .branchlabel{font-size:8px;padding:1px 6px;}
+    .chip{font-size:8.5px;padding:1px 5px;}
+    .drawer{width:min(380px,94%);}
+    .planadd{font-size:11px;}
+  }
+
+  /* ===== Принудительный альбомный вид: в портрете весь интерфейс «лежит» ===== */
+  @media (orientation:portrait){
+    html,body{overflow:hidden;}
+    #rotor{
+      position:absolute; top:100%; left:0;
+      width:100vh; height:100vw;
+      transform-origin:left top;
+      transform:rotate(-90deg);
+      overflow:auto;
+    }
+    #rotor .app{min-height:100%;height:auto;}
+    .hull.plain{width:min(98%,120vw);}
+  }
 </style>
 </head>
 <body>
+<div id="rotor">
 <div class="app">
   <header>
     <div class="crest" id="crest">⚙</div>
@@ -342,6 +404,7 @@
   </div>
   <div class="drawer-body" id="drawerBody"></div>
 </aside>
+</div><!--/rotor-->
 
 <script>
 /* ============ DEFAULT DATA ============ */
